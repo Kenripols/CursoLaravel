@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <header></header>
     <div class="max-w-4x1 mx-auto px-4">
         <h1>Bienvenido a la pagina de registro {{$usuario}} </h1> 
     </div>
