@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TitularController;
 use App\Models\Titular;
 
 Route::get('/', function () {
@@ -11,13 +12,31 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/titular', [TitularController::class, 'index']);
+
+Route::get('/titular/registro', [TitularController::class, 'registro']);
+
+route::post('/titular/' , [TitularController::class, 'guardar']);
+
+Route::get('/titular/{titular}',[TitularController::class, 'mostrar']);
+
+Route::get('/titular/{titular}/modificar', [TitularController::class, 'modificar']);
+
+Route::put('/titular/{titular}', [TitularController::class, 'actualizar']);
+
+Route::delete('/titular/{titular}', [TitularController::class, 'eliminar']);
 
 Route::get('prueba', function()
 {
+
+    //GET
+    //POST
+    //PUT
+    //PATCH
+    //DELETE
     
     //Crear nuevo registro Titular en BD
-    
+    /*
     $titular = new Titular;
     $titular-> tipoDoc = 'Pasaporte';
     $titular->numDoc = '986645564';
@@ -27,7 +46,7 @@ Route::get('prueba', function()
     $titular->apellido2 = 'sadadasdsa';
     $titular->save();
     return $titular;
-    
+    */
  
     /* 
     Buscar por ID
