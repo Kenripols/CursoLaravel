@@ -9,8 +9,8 @@ class TitularController extends Controller
 {
 
     public function index() {
-        $titulares = Titular::orderBy('id', 'desc')->get();
-        //Envio la el conjunto de los titulares como un array hacia la vista titular para mostrarlo
+        $titulares = Titular::orderBy('id', 'desc')->paginate(20);
+        //Envio la el conjunto de los titulares como un array hacia la vista titular para mostrarlo se divide por paginas
         return view('titular', [
             'titulares' => $titulares
         ]);
@@ -22,7 +22,15 @@ class TitularController extends Controller
 }
 
     public function guardar(Request $request) {
-  
+
+    //$request->validate([
+        //'tipoDoc' => 'required' ,
+        //'numDoc' => 'required' ,
+        //'nombre1' => 'required' ,
+        //nombre2 Opcional
+        //'apellido1' => 'required',
+        //apellido2 Opcional
+    //])
     $titular = new Titular();
     $titular->nombre1 = $request->nombre1;
     $titular->nombre2 = $request->nombre2;

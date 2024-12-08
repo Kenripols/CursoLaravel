@@ -9,7 +9,7 @@
 <body>
     <h1>Formulario de Registro Titular</h1>
     
-    <form action="/titular" method="POST">
+    <form action="{{route('titular.guardar')}}" method="POST">
         <!-- TOKEN LARAVEL -->
         @csrf
         <label>

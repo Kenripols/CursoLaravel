@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/titular">Volver a Titulares</a>
+    <a href="{{route('titular.index')}}">Volver a Titulares</a>
     <h1>Aqui se mostraran el titular {{$titular-> id}} </h1> 
 
    <b>Nombre</b> {{$titular-> nombre1}}
    <p><b>Apellido</b> {{$titular-> apellido1}}</p>
 
-   <a href="/titular/{{$titular->id}}/modificar">Modificar</a>
+   <a href="{{route('titular.modificar',$titular->id)}}">Modificar</a>
 
-   <form action="/titular/{{$titular->id}}" method="POST">
+   <form action="{{route('titular.eliminar',$titular->id)}}" method="POST">
 
     @csrf
     @method('DELETE')

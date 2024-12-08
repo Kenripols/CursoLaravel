@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Formulario de Registro Titular</h1>
+    <h1>Formulario de Modificar Titular</h1>
     
-    <form action="/titular/{{$titular->id}}" method="POST">
+    <form action="{{route('titular.modificar',$titular->id)}}" method="POST">
         <!-- TOKEN LARAVEL -->
         @csrf
 

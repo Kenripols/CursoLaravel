@@ -12,19 +12,19 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/titular', [TitularController::class, 'index']);
+Route::get('/titular', [TitularController::class, 'index'])->name('titular.index');
 
-Route::get('/titular/registro', [TitularController::class, 'registro']);
+Route::get('/titular/registro', [TitularController::class, 'registro'])->name('titular.registro');
 
-route::post('/titular/' , [TitularController::class, 'guardar']);
+route::post('/titular/' , [TitularController::class, 'guardar'])->name('titular.guardar');
 
-Route::get('/titular/{titular}',[TitularController::class, 'mostrar']);
+Route::get('/titular/{titular}',[TitularController::class, 'mostrar'])->name('titular.mostrar');
 
-Route::get('/titular/{titular}/modificar', [TitularController::class, 'modificar']);
+Route::get('/titular/{titular}/modificar', [TitularController::class, 'modificar'])->name('titular.modificar');
 
-Route::put('/titular/{titular}', [TitularController::class, 'actualizar']);
+Route::put('/titular/{titular}', [TitularController::class, 'actualizar'])->name('titular.actualizar');
 
-Route::delete('/titular/{titular}', [TitularController::class, 'eliminar']);
+Route::delete('/titular/{titular}', [TitularController::class, 'eliminar'])->name('titular.eliminar');
 
 Route::get('prueba', function()
 {
