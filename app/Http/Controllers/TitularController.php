@@ -22,15 +22,16 @@ class TitularController extends Controller
 }
 
     public function guardar(Request $request) {
-
-    //$request->validate([
-        //'tipoDoc' => 'required' ,
-        //'numDoc' => 'required' ,
-        //'nombre1' => 'required' ,
+//Validacion de Campos, se guardan en una variable de errores
+    $request->validate([
+        'tipoDoc' => 'required' ,
+        'numDoc' => 'required|min:5|max:254|unique:titular' ,
+        'nombre1' => 'required' ,
         //nombre2 Opcional
-        //'apellido1' => 'required',
+        'apellido1' => 'required',
         //apellido2 Opcional
-    //])
+    ]);
+    
     $titular = new Titular();
     $titular->nombre1 = $request->nombre1;
     $titular->nombre2 = $request->nombre2;
@@ -59,6 +60,16 @@ class TitularController extends Controller
 
     public function actualizar(Request $request, $titular) {
         $titular = Titular::find($titular);
+        //Validacion de Campos, se guardan en una variable de errores
+    $request->validate([
+        'tipoDoc' => 'required' ,
+        'numDoc' => "required|min:5|max:254|unique:titular,numDoc,{$titular->id}" ,
+        'nombre1' => 'required' ,
+        //nombre2 Opcional
+        'apellido1' => 'required',
+        //apellido2 Opcional
+    ]);
+        
     $titular->nombre1 = $request->nombre1;
     $titular->nombre2 = $request->nombre2;
     $titular->apellido1 = $request->apellido1;
