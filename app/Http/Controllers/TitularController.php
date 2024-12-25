@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GuardarTitularRequest;
 use App\Models\Titular;
 use Illuminate\Http\Request;
 
@@ -21,16 +22,16 @@ class TitularController extends Controller
     
 }
 
-    public function guardar(Request $request) {
+    public function guardar(GuardarTitularRequest $request) {
 //Validacion de Campos, se guardan en una variable de errores
-    $request->validate([
-        'tipoDoc' => 'required' ,
-        'numDoc' => 'required|min:5|max:254|unique:titular' ,
-        'nombre1' => 'required' ,
-        //nombre2 Opcional
-        'apellido1' => 'required',
-        //apellido2 Opcional
-    ]);
+    // $request->validate([
+    //     'tipoDoc' => 'required' ,
+    //     'numDoc' => 'required|min:5|max:254|unique:titular' ,
+    //     'nombre1' => 'required' ,
+    //     //nombre2 Opcional
+    //     'apellido1' => 'required',
+    //     //apellido2 Opcional
+    // ]);
     
     $titular = new Titular();
     $titular->nombre1 = $request->nombre1;
