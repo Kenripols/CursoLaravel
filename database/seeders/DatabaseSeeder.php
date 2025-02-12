@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Titular;
 use App\Models\User;
+use App\Models\mascota;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(60)->create(); 
         Titular::factory(60)->create();
+        mascota::factory(120)->create();
         
     }
 }

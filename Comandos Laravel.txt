@@ -1,0 +1,6 @@
+Crear modelo y migrate de una tabla
+php artisan make:model <nombre> -m
+Crear Factory según el modelo
+php artisan make:factory MascotaFactory --model=mascota
+Resetear la BD:
+php artisan migrate:fresh

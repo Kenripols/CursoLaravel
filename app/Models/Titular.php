@@ -23,6 +23,19 @@ class Titular extends Model
                 return ucfirst($value);
             }
         );
+
         
+        
+    }
+    //Asignación masiva
+    protected $fillable = [
+        'tipoDoc', 'numDoc', 'nombre1', 'nombre2', 'apellido1', 'apellido2'
+        
+                ];
+
+                //Especifico la relacion de uno a N
+    public function mascotas()
+    {
+        return $this->hasMany(Mascota::class);
     }
 }

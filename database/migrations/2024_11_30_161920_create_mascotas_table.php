@@ -10,19 +10,25 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('mascotas', function (Blueprint $table) {
-            $table->id();
-            $table->integer('tipo');
-            $table->string('nombre');
-            $table->foreignId('idRaza');
-            $table->time('fechaNac');
-            $table->string('foto');
-            $table->foreignId('idTitular');
+{
+    Schema::create('mascotas', function (Blueprint $table) {
+        $table->id();
+        $table->string('foto');
+        $table->string('nombre');
+        $table->string('tipo');
+        $table->date('fechaNac');
+        $table->unsignedBigInteger('idRaza');
+        //Clave foranea
+        $table->unsignedBigInteger('idTitular');
+        $table->foreign('idTitular')->references('id')->on('titular');
+    
+        
 
-        });
-    }
+        
 
+        $table->timestamps();
+    });
+}
     /**
      * Reverse the migrations.
      */
