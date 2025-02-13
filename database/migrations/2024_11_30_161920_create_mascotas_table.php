@@ -17,10 +17,12 @@ return new class extends Migration
         $table->string('nombre');
         $table->string('tipo');
         $table->date('fechaNac');
+        //Clave foranea de Raza
         $table->unsignedBigInteger('idRaza');
+        $table->foreign('idRaza')->references('id')->on('razas');
         //Clave foranea
-        $table->unsignedBigInteger('idTitular');
-        $table->foreign('idTitular')->references('id')->on('titular');
+        $table->unsignedBigInteger('titular_id');
+        $table->foreign('titular_id')->references('id')->on('titular');
     
         
 

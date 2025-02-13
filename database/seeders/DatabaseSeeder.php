@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Titular;
 use App\Models\User;
 use App\Models\mascota;
+use App\Models\Raza;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,8 +24,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(60)->create(); 
-        Titular::factory(60)->create();
-        mascota::factory(120)->create();
+        Titular::factory()->count(10)->hasMascotas(3)->create();
+        //Raza::factory()->count(3)->create();
+        Mascota::factory()->hasRazas(1);
+        //mascota::factory()->create();
         
     }
 }

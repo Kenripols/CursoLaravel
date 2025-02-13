@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Mascota;
+use App\Models\Raza;
 use App\Models\Titular;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,8 +24,9 @@ class MascotaFactory extends Factory
             'nombre' => $this->faker->firstName(),
             'tipo' => $this->faker->word,
             'fechaNac' => $this->faker->date(),
-            'idRaza' => $this->faker->numberBetween(1, 10), // Asegúrate de que exista alguna raza en tu base de datos
-            'idTitular' => Titular::factory(), // Aquí se asocia un Titular a la Mascota
+            //'idRaza' => $this->faker->numberBetween(1, 10), // Asegúrate de que exista alguna raza en tu base de datos
+            'idRaza'=>Raza::factory(), //Aqui se asocia una raza a la Mascota
+            'titular_id' => Titular::factory(), // Aquí se asocia un Titular a la Mascota
         ];
     }
 }
