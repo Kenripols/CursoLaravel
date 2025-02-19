@@ -15,5 +15,8 @@ class mascota extends Model
     public function razas()
     {
         return $this->hasMany(Raza::class);
+        
     }
+
+
 }
