@@ -11,7 +11,7 @@ class PlacaQR extends Model
 
     public function mascotas()
     {
-        return $this->hasOne(Mascota::class);
+        return $this->belongsTo(Mascota::class);
     }
 }
 
